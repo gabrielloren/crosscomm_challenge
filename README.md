@@ -9,7 +9,17 @@ Esta API foi criada com o Python versão **3.10.1**, caso sua versão seja anter
 
 O repositório deve ser clonado e iniciado o virtual environment pelo PowerShell ou teminal, navegando até a pasta clonada e executando os comandos:
 ```
-py -m venv .venv
+# Linux
+sudo apt-get install python3-venv    # Se necessário
+python3 -m venv .venv
+source .venv/bin/activate
+
+# macOS
+python3 -m venv .venv
+source .venv/bin/activate
+
+# Windows
+py -3 -m venv .venv
 .venv\scripts\activate
 ```
 
