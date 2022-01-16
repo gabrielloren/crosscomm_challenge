@@ -3,8 +3,8 @@ from time import sleep
 from urllib.error import URLError, HTTPError
 
 
-crossCommUrl = "http://challenge.dienekes.com.br/api/numbers?page=" #URL da requisição
-headers = {'User-Agent': 'API', 'content-type': 'application/json'}
+crossCommUrl = "http://challenge.dienekes.com.br/api/numbers?page=" # URL da requisição
+headers = {'User-Agent': 'API', 'content-type': 'application/json'} # Cabeçalho da requisição
 
 numbers = []            # Lista de numeros adquiridos
 listEmpty = False       # Flag de fim da lista
@@ -60,9 +60,9 @@ async def Make_request():
     global listEmpty
     global crossCommUrl
     listIndex = 0       #Index de requisição da página
-    interval = 100       #Intervalo de requisições simultâneas (um número acima de 10 pode causar crash)
+    interval = 100       #Intervalo de requisições simultâneas
     
-    connector = aiohttp.TCPConnector(limit=50)
+    connector = aiohttp.TCPConnector(limit=50)  # Cria connector e limita o número de conexões simultâneas
     async with aiohttp.ClientSession(connector=connector) as session: #Cria sessão http para as requisições assíncronas
         while not listEmpty:
             
@@ -97,5 +97,5 @@ def extract():
     print("Iniciando ordenação dos numeros coletados...")
     numbers = qsort(numbers) # Realiza a ordenação (transform) dos números coletados
     print("Ordenação dos números concluída!")
-    return numbers
+    return numbers # Retorna os números ordenados
 
